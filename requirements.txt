@@ -1,0 +1,4 @@
+IPython
+pyvis
+networkx
+ipywidgets

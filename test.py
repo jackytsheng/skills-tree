@@ -1,4 +1,3 @@
-# IMPORTS
 from IPython.display import HTML
 from pyvis import network as net
 import networkx as nx
