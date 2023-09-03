@@ -2,3 +2,5 @@ IPython
 pyvis
 networkx
 ipywidgets
+ipykernel
+beautifulsoup4
