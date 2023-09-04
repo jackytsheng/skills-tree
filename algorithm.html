@@ -1,26 +1,39 @@
 <html>
-<head>
-<meta charset="utf-8"/>
-<script src="lib/bindings/utils.js"></script>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" referrerpolicy="no-referrer" rel="stylesheet"/>
-<script crossorigin="anonymous" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js"></script>
-<link href="lib/tom-select/tom-select.css" rel="stylesheet"/>
-<script src="lib/tom-select/tom-select.complete.min.js"></script>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
 <center>
 <h1></h1>
 </center>
+
 <!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
 <script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" rel="stylesheet"/>
-<script crossorigin="anonymous" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-<center>
-<h1></h1>
-</center>
-<style type="text/css">
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
 
              #mynetwork {
                  width: 100%;
-                 height: 400px;
+                 height: 700px;
                  background-color: #ffffff;
                  border: 1px solid lightgray;
                  position: relative;
@@ -32,89 +45,21 @@
              
 
              
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
         
-    /* Add your custom CSS rules here */
+        
 
-    #mynetwork {
-        border: none
-    }
-    
-    /* Add your custom CSS rules here */
-
-    #mynetwork {
-       border: none
-    }
-    .card{
-        border:none
-    }
-    </style>
-</head>
-<body>
-<div class="card" style="width: 100%">
-<div class="card-header" id="select-menu">
-<div class="row no-gutters">
-<div class="col-10 pb-2">
-<select aria-label="Default select example" class="form-select" id="select-node" onchange="selectNode([value]);" placeholder="Select node...">
-<option selected="">Select a Node by ID</option>
-<option value="Linked List">Linked List</option>
-<option value="Trees">Trees</option>
-<option value="Two Pointers">Two Pointers</option>
-<option value="Binary Search">Binary Search</option>
-<option value="Sliding Window">Sliding Window</option>
-<option value="1-D DP">1-D DP</option>
-<option value="2-D DP">2-D DP</option>
-<option value="Bit Manipulation">Bit Manipulation</option>
-<option value="Math">Math</option>
-<option value="Geometry">Geometry</option>
-<option value="Arrays">Arrays</option>
-<option value="Stack">Stack</option>
-<option value="Queue">Queue</option>
-<option value="Hashing">Hashing</option>
-<option value="Graphs">Graphs</option>
-<option value="Advanced Graphs">Advanced Graphs</option>
-<option value="Backtracking">Backtracking</option>
-<option value="Heap">Heap</option>
-<option value="Intervals">Intervals</option>
-<option value="Greedy">Greedy</option>
-<option value="Priority Queue">Priority Queue</option>
-<option value="Tries">Tries</option>
-</select>
-</div>
-<div class="col-2 pb-2">
-<button class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});" type="button">Reset Selection</button>
-</div>
-</div>
-</div>
-<div class="card-header" id="filter-menu">
-<div class="row no-gutters">
-<div class="col-3 pb-2">
-<select aria-label="Default select example" class="form-select" id="select-item" onchange="updateFilter(value, 'item')">
-<option value="">Select a network item</option>
-<option value="edge">edge</option>
-<option value="node">node</option>
-</select>
-</div>
-<div class="col-3 pb-2">
-<select aria-label="Default select example" class="form-select" id="select-property" onchange="updateFilter(value, 'property')">
-<option value="">Select a property...</option>
-</select>
-</div>
-<div class="col-3 pb-2">
-<select aria-label="Default select example" class="form-select" id="select-value">
-<option value="">Select value(s)...</option>
-</select>
-</div>
-<div class="col-1 pb-2">
-<button class="btn btn-primary btn-block" onclick="highlightFilter(filter);" type="button">Filter</button>
-</div>
-<div class="col-2 pb-2">
-<button class="btn btn-primary btn-block" onclick="clearFilter(true)" type="button">Reset Selection</button>
-</div>
-</div>
-</div>
-<div class="card-body" id="mynetwork"></div>
-</div>
-<script type="text/javascript">
+        <script type="text/javascript">
 
               // initialize global variables.
               var edges;
@@ -133,140 +78,6 @@
               };
 
               
-                  new TomSelect("#select-node",{
-                      create: false,
-                      sortField: {
-                          field: "text",
-                          direction: "asc"
-                      }
-                  });
-              
-
-              
-                  // explicitly using onItemAdd and this function as we need to save multiple values
-                  let updateValueFilter = function() {
-                      return function () {
-                      filter['value'].push(arguments[0])
-                      }
-                  }
-
-                  let valueControl = new TomSelect("#select-value",{
-                      maxItems: null,
-                      valueField: 'id',
-                      labelField: 'title',
-                      searchField: 'title',
-                      create: false,
-                      sortField: {
-                          field: "text",
-                          direction: "asc"
-                      },
-                      onItemAdd: updateValueFilter()
-                  });
-
-                  let addValues = function() {
-                      return function () {
-                          // clear the current value options and add the selected attribute values
-                          // tom-select handles duplicates
-                          let selectedProperty = arguments[0];
-                          valueControl.clear();
-                          valueControl.clearOptions();
-                          filter['value'] = []
-                          if (filter['item'] === 'node') {
-                              for (let each in allNodes) {
-                                  valueControl.addOption({
-                                      id:allNodes[each][selectedProperty],
-                                      title:allNodes[each][selectedProperty]
-                                  })
-                              }
-                          }
-                          else if (filter['item'] === 'edge') {
-                              for (let each in allEdges) {
-                                  valueControl.addOption({
-                                      id:allEdges[each][selectedProperty],
-                                      title:allEdges[each][selectedProperty]
-                                  })
-                              }
-                          }
-                      }
-                  };
-
-                  let propControl = new TomSelect("#select-property",{
-                      valueField: 'id',
-                      labelField: 'title',
-                      searchField: 'title',
-                      create: false,
-                      sortField: {
-                          field: "text",
-                          direction: "asc"
-                      },
-                      onItemAdd: addValues()
-                  });
-
-                  let addProperties = function() {
-                      return function () {
-                          // loops through the selected network item and adds the attributes to dropdown
-                          // tom-select handles duplicates
-                          clearFilter(false)
-                          if (arguments[0] === 'edge') {
-                              for (let each in allEdges) {
-                                  if (allEdges.hasOwnProperty(each)) {
-                                      for (let eachProp in allEdges[each]) {
-                                          if (allEdges[each].hasOwnProperty(eachProp)) {
-                                              propControl.addOption({id: eachProp, title: eachProp})
-                                          }
-                                      }
-                                  }
-                              }
-                          }
-                          else if (arguments[0] === 'node') {
-                              for (let each in allNodes) {
-                                  if (allNodes.hasOwnProperty(each)) {
-                                      for (let eachProp in allNodes[each]) {
-                                          if (allNodes[each].hasOwnProperty(eachProp)
-                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
-                                                  && eachProp !== 'hiddenLabel')) {
-                                              propControl.addOption({id: eachProp, title: eachProp})
-
-                                          }
-                                      }
-                                  }
-                              }
-                          }
-                      }
-                  };
-
-                  let itemControl = new TomSelect("#select-item",{
-                      create: false,
-                      sortField:{
-                          field: "text",
-                          direction: "asc"
-                      },
-                      onItemAdd: addProperties()
-                  });
-
-                  function clearFilter(reset) {
-                      // utility function to clear all the selected filter options
-                      // if reset is set to true, the existing filter will be removed
-                      // else, only the dropdown options are cleared
-                      propControl.clear();
-                      propControl.clearOptions();
-                      valueControl.clear();
-                      valueControl.clearOptions();
-                      filter = {
-                          item : '',
-                          property : '',
-                          value : []
-                      }
-                      if (reset) {
-                          itemControl.clear();
-                          filterHighlight({nodes: []})
-                      }
-                  }
-
-                  function updateFilter(value, key) {
-                      // key could be 'item' or 'property' and value is as selected in dropdown
-                      filter[key] = value
-                  }
 
               
 
@@ -277,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Linked List", "label": "Linked List", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Trees", "label": "Trees", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Two Pointers", "label": "Two Pointers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Binary Search", "label": "Binary Search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Sliding Window", "label": "Sliding Window", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "1-D DP", "label": "1-D DP", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "2-D DP", "label": "2-D DP", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Bit Manipulation", "label": "Bit Manipulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Math", "label": "Math", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Geometry", "label": "Geometry", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Arrays", "label": "Arrays", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Stack", "label": "Stack", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Queue", "label": "Queue", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Hashing", "label": "Hashing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Graphs", "label": "Graphs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Advanced Graphs", "label": "Advanced Graphs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Backtracking", "label": "Backtracking", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Heap", "label": "Heap", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Intervals", "label": "Intervals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Greedy", "label": "Greedy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Priority Queue", "label": "Priority Queue", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Tries", "label": "Tries", "shape": "dot", "size": 10}]);
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Linked List", "label": "Linked List", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Trees", "label": "Trees", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Two Pointers", "label": "Two Pointers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Binary Search", "label": "Binary Search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Sliding Window", "label": "Sliding Window", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "1-D DP", "label": "1-D DP", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "2-D DP", "label": "2-D DP", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Bit Manipulation", "label": "Bit Manipulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Math", "label": "Math", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Geometry", "label": "Geometry", "shape": "dot", "size": 10}, {"color": "#97c2fc", "fixed": {"x": true, "y": true}, "id": "Arrays", "label": "Arrays", "shape": "dot", "size": 10, "x": 200, "y": 0}, {"color": "#97c2fc", "id": "Stack", "label": "Stack", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Queue", "label": "Queue", "shape": "dot", "size": 10}, {"color": "#97c2fc", "fixed": {"x": true, "y": true}, "id": "Hashing", "label": "Hashing", "shape": "dot", "size": 10, "x": 0, "y": 0}, {"color": "#97c2fc", "id": "Graphs", "label": "Graphs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Advanced Graphs", "label": "Advanced Graphs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Backtracking", "label": "Backtracking", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Heap", "label": "Heap", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Intervals", "label": "Intervals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Greedy", "label": "Greedy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Priority Queue", "label": "Priority Queue", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Tries", "label": "Tries", "shape": "dot", "size": 10}]);
                   edges = new vis.DataSet([{"arrows": "to", "from": "Linked List", "to": "Trees", "width": 1}, {"arrows": "to", "from": "Two Pointers", "to": "Binary Search", "width": 1}, {"arrows": "to", "from": "Two Pointers", "to": "Sliding Window", "width": 1}, {"arrows": "to", "from": "Two Pointers", "to": "Linked List", "width": 1}, {"arrows": "to", "from": "1-D DP", "to": "2-D DP", "width": 1}, {"arrows": "to", "from": "Bit Manipulation", "to": "Math", "width": 1}, {"arrows": "to", "from": "Bit Manipulation", "to": "Geometry", "width": 1}, {"arrows": "to", "from": "Arrays", "to": "Stack", "width": 1}, {"arrows": "to", "from": "Arrays", "to": "Queue", "width": 1}, {"arrows": "to", "from": "Arrays", "to": "Two Pointers", "width": 1}, {"arrows": "to", "from": "Hashing", "to": "Stack", "width": 1}, {"arrows": "to", "from": "Hashing", "to": "Queue", "width": 1}, {"arrows": "to", "from": "Hashing", "to": "Two Pointers", "width": 1}, {"arrows": "to", "from": "Graphs", "to": "2-D DP", "width": 1}, {"arrows": "to", "from": "Graphs", "to": "Advanced Graphs", "width": 1}, {"arrows": "to", "from": "Graphs", "to": "Math", "width": 1}, {"arrows": "to", "from": "Graphs", "to": "Geometry", "width": 1}, {"arrows": "to", "from": "Backtracking", "to": "Graphs", "width": 1}, {"arrows": "to", "from": "Backtracking", "to": "1-D DP", "width": 1}, {"arrows": "to", "from": "Heap", "to": "Intervals", "width": 1}, {"arrows": "to", "from": "Heap", "to": "Advanced Graphs", "width": 1}, {"arrows": "to", "from": "Heap", "to": "Greedy", "width": 1}, {"arrows": "to", "from": "Priority Queue", "to": "Intervals", "width": 1}, {"arrows": "to", "from": "Priority Queue", "to": "Advanced Graphs", "width": 1}, {"arrows": "to", "from": "Priority Queue", "to": "Greedy", "width": 1}, {"arrows": "to", "from": "Binary Search", "to": "Trees", "width": 1}, {"arrows": "to", "from": "Trees", "to": "Tries", "width": 1}, {"arrows": "to", "from": "Trees", "to": "Heap", "width": 1}, {"arrows": "to", "from": "Trees", "to": "Backtracking", "width": 1}, {"arrows": "to", "from": "Trees", "to": "Priority Queue", "width": 1}]);
 
                   nodeColors = {};
@@ -309,15 +120,6 @@
     },
     "physics": {
         "enabled": true,
-        "forceAtlas2Based": {
-            "avoidOverlap": 0,
-            "centralGravity": 0.01,
-            "damping": 0.4,
-            "gravitationalConstant": -50,
-            "springConstant": 0.08,
-            "springLength": 100
-        },
-        "solver": "forceAtlas2Based",
         "stabilization": {
             "enabled": true,
             "fit": true,
@@ -340,8 +142,6 @@
                   
 
                   
-                    network.on("selectNode", neighbourhoodHighlight);
-                  
 
                   
 
@@ -353,5 +153,5 @@
               }
               drawGraph();
         </script>
-</body>
+    </body>
 </html>

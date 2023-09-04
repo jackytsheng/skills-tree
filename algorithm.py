@@ -63,10 +63,22 @@ edges = [
 ]
 G.add_edges_from(edges)
 
-nt = net.Network("400px", notebook=True, directed=True,
-                 neighborhood_highlight=True, filter_menu=True, select_menu=True)
+nt = net.Network("700px", notebook=True, directed=True,
+                 neighborhood_highlight=True, filter_menu=False, select_menu=False)
 nt.from_nx(G)
-nt.force_atlas_2based()
+# nt.repulsion()
+
+first_node = nt.get_node('Hashing')
+first_node['x'] = 0
+first_node['y'] = 0
+first_node['fixed'] = {'x': True, 'y': True}
+
+
+first_node = nt.get_node('Arrays')
+first_node['x'] = 200
+first_node['y'] = 0
+first_node['fixed'] = {'x': True, 'y': True}
+
 file_name = 'algorithm.html'
 # nt.show_buttons()
 nt.show(file_name)
