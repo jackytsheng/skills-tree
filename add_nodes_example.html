@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vis.js Add Nodes on Click</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+</head>
+<style>
+    #mynetwork {
+        width: 600px;
+        height: 400px;
+        border: 1px solid lightgray;
+    }
+</style>
+
+
+<body>
+
+<div id="mynetwork"></div>
+
+<script>
+    // Define nodes and edges
+    var nodes = new vis.DataSet([{ id: 1, label: 'Node 1' }]);
+    var edges = new vis.DataSet([]);
+
+    // Create the network
+    var container = document.getElementById('mynetwork');
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+    var network = new vis.Network(container, data, options);
+
+    // Define a counter for new nodes
+    var newNodeCount = 2;
+
+    // Attach click event
+    network.on("click", function (params) {
+        if (params.nodes.length > 0) {
+            var clickedNodeId = params.nodes[0];
+
+            // Add a new node
+            var newNodeId = newNodeCount++;
+            nodes.add({ id: newNodeId, label: 'Node ' + newNodeId });
+
+            // Optionally, create an edge between the clicked node and the new node
+            edges.add({ from: clickedNodeId, to: newNodeId });
+        }
+    });
+</script>
+
+</body>
+</html>
